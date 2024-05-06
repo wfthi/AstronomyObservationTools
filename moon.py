@@ -62,6 +62,9 @@ def add_magnitudes(magnitude1, magnitude2):
     When one has 2 magnitude objects from astropy.units, their summation is
     wrong.  Meeus p. 393
 
+    Meeus j. 1988 Astronomical Algorithms, Atlantic Books, 2nd edition
+
+
     Parameters
     ----------
     magnitude1 :  float, numpy.ndarray or `astropy.units.quantity.Quantity` mag
@@ -283,6 +286,7 @@ def moon_phase_angle(sun_distance, moon_distance, sun_moon_elongation):
                        np.cos(sun_moon_elongation))
 
     See Meeus Chap. 48 eq. 48.3
+    Meeus j. 1988 Astronomical Algorithms, Atlantic Books, 2nd edition
 
     Low accuracy cos(alpha) = -cos(sun_moon_elongation)
 
@@ -407,6 +411,7 @@ def moon_phase_angle_illumination(moon_illumination):
     Compute the moon phase angle from its illumination
 
     Meeus Chap. 48
+    Meeus j. 1988 Astronomical Algorithms, Atlantic Books, 2nd edition
 
     Example
     -------
@@ -457,6 +462,7 @@ def moon_illumination_angle(phase_angle):
     Compute the Moon fraction illumination
 
     Meeus Chap 41 & 48, eq. 41.1, 48.1 p.345
+    Meeus j. 1988 Astronomical Algorithms, Atlantic Books, 2nd edition
 
     The Moon is roughly 0% illuminated when New,
     50% illuminated at the Quarters, and
@@ -468,6 +474,7 @@ def moon_illumination_angle(phase_angle):
 
     An approximation is cos(phase_angle) = -cos(Moon-Sun separation)
     See Meeus Chap. 48
+    Meeus j. 1988 Astronomical Algorithms, Atlantic Books, 2nd edition
 
     Notes
     -----
