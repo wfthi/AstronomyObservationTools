@@ -34,6 +34,7 @@ from astropy.coordinates import get_body
 from astropy.coordinates import get_sun
 from astropy.coordinates import SkyCoord
 from astropy.coordinates import AltAz
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 
 
@@ -843,7 +844,7 @@ def plot_moon_brightness_diagram(moon_zenith_angle=70 * u.deg,
     >>> plt.plot(sunmoon, moon_mag)
     >>> plt.xlim(0., 180.)
     >>> plt.xlabel('Sun-Moon separation angle (degree)')
-    >>> plt.ylabel('Moon magnitude inthe V-band')
+    >>> plt.ylabel('Moon magnitude in the V-band')
     >>> plt.show()
     """
     # moonsep and sky_zenith_angle are of the same size
@@ -877,17 +878,22 @@ def plot_moon_brightness_diagram(moon_zenith_angle=70 * u.deg,
 
     X, Y = np.meshgrid(sunmoon, moonsep)
     # X, Y = np.meshgrid(FLI, moonsep)
-    Z = -np.flip(dmagV, 0)
+    cs2_levels = np.array([0.18, 0.5, 0.7, 1., 1.5, 1.75, 2., 2.5, 3., 3.5])
+    cs3_levels = np.arange(0, 4.1, 0.1)
+    cs2_levels = np.flip(-1 * cs2_levels)
+    cs3_levels = np.flip(-1 * cs3_levels)
+    cmap=mpl.colormaps['binary']
+    Z = dmagV
+    
     # Z = np.flip(np.log10(Bmoon), 0)
     #
-    levels = [0.18, 0.5, 0.7, 1., 1.5, 1.75, 2., 2.5, 3., 3.5]
+    
     fig = plt.figure()
     ax = fig.add_subplot(111)
     CS2 = ax.contour(X, Y, Z, colors='red',
-                     levels=levels)
-    ax.clabel(CS2, CS2.levels)
-    levels = np.arange(0, 4.1, 0.1)
-    CS3 = ax.contourf(X, Y, Z, levels=levels)
+                     levels=cs2_levels)
+    ax.clabel(CS2, cs2_levels)
+    CS3 = ax.contourf(X, Y, Z, levels=cs3_levels,  cmap=cmap)
     plt.ylim([plot_min_moonsep, 120.])
     plt.colorbar(CS3, label='Moon V-band contribution (mag)')
     plt.xlabel('Sun-Moon separation angle (degree)')
