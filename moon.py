@@ -1752,7 +1752,6 @@ def plot_sky_brightness(obsTime, telescope, moon=False, darksky=False,
     ...                                        Paranal=True,
     ...                                        moon=False, darksky=False)
     """
-    import matplotlib.pyplot as plt
 
     # Build a grid in observation (zenith, azimuth).
     # Build a grid in observation (zenith, azimuth).
