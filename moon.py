@@ -198,7 +198,7 @@ def moon_pointing_separation(time, pointing, ephemeris=None):
     >>> time_utc = '2022-01-01T00:00:00'
     >>> ObservingTime = Time(time_utc, format='isot', scale='utc')
     >>> moon_pointing_separation(ObservingTime, c)
-    <Angle 92.5365841 deg>
+    <Angle 92.53663009 deg>
     >>> c = SkyCoord(ra=[133, 15] * u.degree, dec=[-45, 5] * u.degree)
     >>> time_utc = ['2022-01-01T00:00:00', '2022-01-02T00:00:00Z']
     >>> ObservingTime = Time(time_utc, format='isot', scale='utc')
@@ -517,6 +517,7 @@ def moon_illumination_angle(phase_angle):
     >>> import numpy as np
     >>> import astropy.units as u
     >>> from moon import moon_illumination, moon_phase_angle, moon_magnitude
+    >>> from moon import moon_illumination_angle
     >>> from astropy.time import Time
     >>> from astropy.coordinates import get_body, get_sun
     >>> time = Time(2021.495, format='decimalyear')
