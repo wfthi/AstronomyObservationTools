@@ -1,5 +1,5 @@
 """
-Simulate Interferometric observations with a cartesin grid model images
+Simulate Interferometric observations with a cartesian grid model images
 as input. The code performs the van Cittert-Zernike theorem integration
 in polar coordinates
 
@@ -140,6 +140,9 @@ class Image():
 
     def compute_dOmega(self, rho, dtheta, dist):
         """
+        Compute the area of between rho and rho + dtheta
+        given the angle dtheta
+
         rho in au
         dtheta in radian
         d in pc
