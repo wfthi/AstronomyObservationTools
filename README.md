@@ -11,7 +11,7 @@ The plot below shows an estimate of the sky brightness above Cerro Paranal in a 
 
 ![Paranal_sky_brightness](https://github.com/wfthi/AstronomyObservationTools/assets/94956037/c4869b36-1680-4c57-9e92-61e00878e877)
 
-Here a sscreenshot of the ETC analysis tool
+Here a screenshot of the ETC analysis tool
 
 <img width="759" alt="Interactive_time_estimator" src="https://github.com/wfthi/AstronomyObservationTools/assets/94956037/eefb8631-1bca-4b14-baa5-04f66b36c211">
 
