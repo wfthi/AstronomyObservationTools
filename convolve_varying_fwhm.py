@@ -22,6 +22,8 @@ multiplied by the numberof rule lines on the grating. On the other hand the
 resolution delta_wavelength depends on the wavelength given a resolving power.
 The FWHM of the convolving kernel in a simulated spectrum should account for
 this change in FWHM.
+
+Doctest >>> python3 convolve_varying_fwhm.py
 """
 import sys
 import numpy as np
