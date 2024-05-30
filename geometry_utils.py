@@ -1862,3 +1862,38 @@ def interpolate_angles(x, angles, values):
                  bounds_error=False, fill_value=None)
     return (f(values) % 360) * u.deg
 
+
+def isMonotonic(A, strict=True):
+    """
+    Purpose:
+       Check if given array is Monotonic
+
+    Parameter
+    ---------
+    A : array-like
+        the input array with numerical values
+
+    strict : bool, optional, default=True
+        strick=True, the values cannot not be equal
+
+    Returns
+    -------
+    : bool
+        whether the values are monotonically increasing or decreasing
+        the values can be equal
+
+    Example
+    -------
+    >>> a = [1., 2., 6., 90.]
+    >>> isMonotonic(a)
+    True
+    >>> a = [1., 2., 6., 6., 90.]
+    >>> isMonotonic(a)
+    False
+    """
+    if strict:
+        return (all(A[i] < A[i + 1] for i in range(len(A) - 1)) or
+                all(A[i] > A[i + 1] for i in range(len(A) - 1)))
+    else:
+        return (all(A[i] <= A[i + 1] for i in range(len(A) - 1)) or
+                all(A[i] >= A[i + 1] for i in range(len(A) - 1)))
